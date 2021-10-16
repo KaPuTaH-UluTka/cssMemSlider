@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    background-color: gray;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.slider {
+    display: grid;
+    grid-template-areas:
+            "slides slides"
+            "bullets bullets"
+            "text text";
+    grid-template-columns: 1fr 12rem;
+    column-gap: 1.5rem;
+    row-gap: 5vh;
+    align-items: center;
+}
+
+.slides {
+    margin: 5% auto 0;
+    width: 40vw;
+    overflow: hidden;
+    grid-area: slides;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+}
+.slidesWrapper {
+    display: grid;
+    transition: transform 0.3s ease-in-out;
+    grid-template-columns: repeat(7, 40vw);
+}
+.slide {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.slide:nth-child(1) {
+    background: url('./memes/mem0.jpeg') center/cover no-repeat;
+}
+.slide:nth-child(2) {
+    background: url('./memes/mem1.jpeg') center/cover no-repeat;
+}
+.slide:nth-child(3) {
+    background: url('./memes/mem2.jpeg') center/cover no-repeat;
+}
+.slide:nth-child(4) {
+    background: url('./memes/mem3.jpg') center/cover no-repeat;
+}
