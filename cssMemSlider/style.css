@@ -68,7 +68,7 @@ body {
 .textWrapper {
     display: grid;
     transition: transform 0.4s ease-in-out;
-    grid-template-columns: repeat(4, calc(40vw));
+    grid-template-columns: repeat(4, 40vw);
 }
 .bullets {
     display: flex;
@@ -170,5 +170,24 @@ body i:target ~.slider .bullets a i {
         width: 0.8rem;
         border-radius: 50%;
         border: 0.1rem solid currentColor;
+    }
+}
+@media (max-width: 470px) {
+    .textWrapper {
+        display: grid;
+        transition: transform 0.4s ease-in-out;
+        grid-template-columns: repeat(4, calc(40vw + 4rem));
+    }
+    #mem0:target ~ .slider .textWrapper {
+        transform: translateX(0);
+    }
+    #mem1:target ~ .slider .textWrapper {
+        transform: translateX(calc(-68vw + 4rem));
+    }
+    #mem2:target ~ .slider .textWrapper {
+        transform: translateX(calc(-61vw * 2 + 4rem));
+    }
+    #mem3:target ~ .slider .textWrapper {
+        transform: translateX(calc(-59vw * 3 + 4rem));
     }
 }
