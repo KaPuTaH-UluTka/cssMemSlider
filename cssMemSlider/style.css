@@ -1,5 +1,4 @@
 body {
-    margin: 0;
     background-color: gray;
     color: white;
     font-family: Arial, sans-serif;
@@ -7,6 +6,8 @@ body {
     font-size: 16px;
 }
 .slider {
+    margin: 0 auto;
+    width: 40vw;
     display: grid;
     grid-template-areas:
             "slides slides"
@@ -29,7 +30,7 @@ body {
 .slidesWrapper {
     display: grid;
     transition: transform 0.3s ease-in-out;
-    grid-template-columns: repeat(7, 40vw);
+    grid-template-columns: repeat(4, 40vw);
 }
 .slide {
     height: 50vh;
@@ -49,4 +50,101 @@ body {
 }
 .slide:nth-child(4) {
     background: url('./memes/mem3.jpg') center/cover no-repeat;
+}
+
+.slide img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(1.2rem);
+}
+.text {
+    grid-area: text;
+    overflow: hidden;
+}
+
+.textItem {
+    width: 20%;
+}
+.textWrapper {
+    overflow-x: hidden;
+    width: 40vw;
+    display: grid;
+    transition: transform 0.4s ease-in-out;
+    grid-template-columns: repeat(4, calc(40vw));
+}
+.bullets {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    grid-area: bullets;
+}
+
+.bullets a {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: dodgerblue;
+    transition: color 0.4s ease-in-out;
+}
+
+.bullets a i {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: 0.2rem solid currentColor;
+    background-color: transparent;
+}
+
+.bullets a+a i {
+    background-color: currentColor;
+}
+.bullets a:hover {
+    color: white;
+}
+.bullets a:active {
+    color: dodgerblue;
+}
+
+body i:target ~.slider .bullets a i {
+    background-color: currentColor;
+}
+#mem0:target ~.slider>.bullets>a:nth-child(1)>i {
+    background-color: transparent;
+}
+#mem1:target ~.slider>.bullets>a:nth-child(2)>i {
+    background-color: transparent;
+}
+#mem2:target ~.slider>.bullets>a:nth-child(3)>i {
+    background-color: transparent;
+}
+#mem3:target ~.slider>.bullets>a:nth-child(4)>i {
+    background-color: transparent;
+}
+
+#mem0:target ~ .slider .slidesWrapper {
+    transform: translateX(0);
+}
+#mem1:target ~ .slider .slidesWrapper {
+    transform: translateX(-40vw);
+}
+#mem2:target ~ .slider .slidesWrapper {
+    transform: translateX(calc(-40vw * 2));
+}
+#mem3:target ~ .slider .slidesWrapper {
+    transform: translateX(calc(-40vw * 3));
+}
+
+#mem0:target ~ .slider .textWrapper {
+    transform: translateX(0);
+}
+#mem1:target ~ .slider .textWrapper {
+    transform: translateX(-40vw);
+}
+#mem2:target ~ .slider .textWrapper {
+    transform: translateX(calc(-40vw * 2));
+}
+#mem3:target ~ .slider .textWrapper {
+    transform: translateX(calc(-40vw * 3));
 }
