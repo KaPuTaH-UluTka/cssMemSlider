@@ -3,7 +3,6 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     font-weight: 500;
-    font-size: 16px;
 }
 .slider {
     margin: 0 auto;
@@ -11,8 +10,7 @@ body {
     display: grid;
     grid-template-areas:
             "slides slides"
-            "bullets bullets"
-            "text text";
+            "text bullets";
     grid-template-columns: 1fr 12rem;
     column-gap: 1.5rem;
     row-gap: 5vh;
@@ -21,6 +19,7 @@ body {
 
 .slides {
     margin: 5% auto 0;
+    max-height: 40vw;
     width: 40vw;
     overflow: hidden;
     grid-area: slides;
@@ -33,7 +32,7 @@ body {
     grid-template-columns: repeat(4, 40vw);
 }
 .slide {
-    height: 50vh;
+    max-height: 40vh;
     display: flex;
     justify-content: center;
     background-color: black;
@@ -61,21 +60,20 @@ body {
 .text {
     grid-area: text;
     overflow: hidden;
+    display: block;
 }
 
 .textItem {
-    width: 20%;
+    font-size: 1.5rem;
 }
 .textWrapper {
-    overflow-x: hidden;
-    width: 40vw;
     display: grid;
     transition: transform 0.4s ease-in-out;
     grid-template-columns: repeat(4, calc(40vw));
 }
 .bullets {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     grid-area: bullets;
 }
@@ -147,4 +145,31 @@ body i:target ~.slider .bullets a i {
 }
 #mem3:target ~ .slider .textWrapper {
     transform: translateX(calc(-40vw * 3));
+}
+
+@media (max-width: 900px) {
+    .slider {
+        margin: 0 auto;
+        width: 40vw;
+        max-height: 40vh;
+        display: grid;
+        grid-template-areas:
+            "slides slides"
+            "bullets bullets"
+            "text text";
+        row-gap: 1vh;
+    }
+    .textItem {
+        font-size: 1rem;
+    }
+    .bullets {
+        justify-content: center;
+    }
+    .bullets a i {
+        display: block;
+        height: 0.8rem;
+        width: 0.8rem;
+        border-radius: 50%;
+        border: 0.1rem solid currentColor;
+    }
 }
