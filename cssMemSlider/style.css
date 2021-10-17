@@ -60,7 +60,6 @@ body {
 .text {
     grid-area: text;
     overflow: hidden;
-    display: block;
 }
 
 .textItem {
@@ -150,7 +149,6 @@ body i:target ~.slider .bullets a i {
 @media (max-width: 900px) {
     .slider {
         margin: 0 auto;
-        width: 40vw;
         max-height: 40vh;
         display: grid;
         grid-template-areas:
@@ -158,6 +156,7 @@ body i:target ~.slider .bullets a i {
             "bullets bullets"
             "text text";
         row-gap: 1vh;
+        column-gap: 0;
     }
     .textItem {
         font-size: 1rem;
